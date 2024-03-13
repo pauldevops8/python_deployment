@@ -33,7 +33,7 @@ pipeline {
                 container ('docker'){
                 script {
                   sh 'ls -ll'
-                  sh  'docker build -t pythonapp:latest .'
+                  sh  'docker buildx build -t pythonapp:latest .'
                 }
             }
             }
