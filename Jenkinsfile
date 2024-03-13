@@ -16,6 +16,7 @@ pipeline {
                     volumeMounts:
                     - name: "docker-sock"
                       mountPath: "/var/run/docker.sock"
+                      readOnly: false
                     securityContext:
                       privileged: true
                   volumes:
