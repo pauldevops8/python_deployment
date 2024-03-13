@@ -10,6 +10,7 @@ pipeline {
                   containers:
                   - name: "docker"
                     image: "pauldevops/custom-jenkins-docker:latest"
+                    imagePullPolicy: Always
                     ports:
                     - containerPort: 8080
                     tty: true
