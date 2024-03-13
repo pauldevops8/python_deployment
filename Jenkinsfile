@@ -31,6 +31,7 @@ pipeline {
             steps {
                 container ('docker'){
                 script {
+                  ls -ll
                   sh  'docker build -t pythonapp:latest .'
                 }
             }
