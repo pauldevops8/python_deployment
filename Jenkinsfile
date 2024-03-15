@@ -33,6 +33,7 @@ pipeline {
                 script {
                   sh 'ls -ll'
                   sh  'docker build -t pythonapp:latest .'
+                  sh 'docker tag pythonapp:latest pauldevops/pythonapp:latest'
                 }
             }
             }
