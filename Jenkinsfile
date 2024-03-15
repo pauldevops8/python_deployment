@@ -8,16 +8,14 @@ pipeline {
                 kind: Pod
                 spec:
                   containers:
-                  - name: "docker"
-                    image: "pauldevops/custom-jenkins-docker:latest"
-                    imagePullPolicy: Always
-                    ports:
-                    - containerPort: 8080
+                  - name: "jenkins"
+                    image: "donsolly/jenkins:v1"
+                    command:
+                    - cat
                     tty: true
                     volumeMounts:
                     - name: "docker-sock"
                       mountPath: "/var/run/docker.sock"
-                      readOnly: false
                     securityContext:
                       privileged: true
                   volumes:
