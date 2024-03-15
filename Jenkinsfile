@@ -38,5 +38,17 @@ pipeline {
             }
             }
         }
+          stage('Push'){
+            steps {
+                container ('jenkins'){
+                  withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+                  script {
+                  sh 'docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}'
+                  sh 'docker push'
+                }
+        }
+            }
+            }
+        }
     }
 }
